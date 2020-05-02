@@ -11,5 +11,7 @@
 5. player == scissors
     scissors loose with rock 
     scissors win with paper
-
+6. playerWins, aIwins
+7. if 3 games and 2 games the same winner end game
+8. again?
 '''
