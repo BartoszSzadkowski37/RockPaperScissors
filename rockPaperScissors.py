@@ -29,9 +29,6 @@ print('--------------Rock--Paper--And--Scissors--------------')
 print('------------------------------------------------------')
 print('Welcome!')
 
-# Choose how many times player wants to play
-howManyGames = pyip.inputChoice(['one', 'three', '1', '3'], 'How many times would you like to play? (one or three): ')
-
 # Value to main loop, when it will be False, then game is over
 game = True
 
@@ -68,7 +65,7 @@ def game():
         player = pyip.inputMenu(['rock', 'paper', 'scissors'])
         aI = choices[random.randint(0,2)]
         winner = checkWin(player, aI)
-        print('\n\n----------------------------------------------')
+        print('----------------------------------------------')
         print('Your choice: %s   vs   My choice: %s' % (player, aI))
         if winner == 'player':
             print('You win!')
@@ -80,6 +77,8 @@ def game():
 
 # Main Loop
 while game:
+# Choose how many times player wants to play
+    howManyGames = pyip.inputChoice(['one', 'three', '1', '3'], '\nHow many times would you like to play? (one or three): ')
     if howManyGames == 'one' or howManyGames == '1':
         game()
     else:
@@ -89,16 +88,18 @@ while game:
             winner = game()
             if winner == 'player':
                 playersWin += 1
-            else:
+            elif winner == 'aI':
                 aIwin += 1
             if playersWin == 2 or aIwin == 2:
                 break
         print('-----------------------------------------')
         if playersWin > aIwin:
-            print('You win!')
+            print('You win the game!')
+        elif playersWin < aIwin:
+            print('I win the game!')
         else:
-            print('I win!')
-        print('-----------------------------------------')
+            print('Tie!')
+        print('\n-----------------------------------------')
             
     again = pyip.inputYesNo('Play again?')
     if again == 'no':
